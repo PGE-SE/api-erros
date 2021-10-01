@@ -1,26 +1,15 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace API_erros
+using Microsoft.EntityFrameworkCore;
+
+namespace API_erros.Models
 {
-    public class Program
+    public class AppDbContext : DbContext
     {
-        public static void Main(string[] args)
+        public AppDbContext(DbContextOptions<AppDbContext> options) :base(options)
         {
-            CreateHostBuilder(args).Build().Run();
+
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+        public DbSet
     }
 }
